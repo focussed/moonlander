@@ -103,6 +103,12 @@ public class PlayerRocket {
     
     private boolean soundPlayed = false;
     
+    private int levelOfDifficulty = 2;
+    
+    public void setLevelOfDifficulty(int level) {
+        this.levelOfDifficulty = level;
+    }
+    
     
     public PlayerRocket()
     {
@@ -120,10 +126,19 @@ public class PlayerRocket {
         
         ResetPlayer();
         
-        speedAccelerating = 2;
-        speedStopping = 1;
-        
-        topLandingSpeed = 5;
+        if (this.levelOfDifficulty == 1) {
+            speedAccelerating = 1;
+            speedStopping = 1;
+            topLandingSpeed = 8;
+        } else if (this.levelOfDifficulty == 2) {
+            speedAccelerating = 2;
+            speedStopping = 1;
+            topLandingSpeed = 5;
+        } else {
+            speedAccelerating = 3;
+            speedStopping = 1;
+            topLandingSpeed = 2;
+        }
     }
     
     private void LoadContent()
